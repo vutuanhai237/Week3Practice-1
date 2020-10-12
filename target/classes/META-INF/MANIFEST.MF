@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: com-turreta-spring-autowiretolist
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vthai
+Implementation-Vendor-Id: com.turreta.spring.autowiretolist
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/com-turreta-
+ spring-autowiretolist/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
