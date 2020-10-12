@@ -1,6 +1,4 @@
-package com.tma.week3Practice_1;
-
-import java.util.List;
+package com.tma.week3Practice_1.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,27 +6,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentBean {
 	@Autowired
-	private List<ScoreBean> scores;
+	private ExamResultBean examResult;
 	private int student_id;
 	private String name;
 	private int age;
 	private String province;
 	private String classes;
 
-	public List<ScoreBean> getScores() {
-		return scores;
+	public ExamResultBean getExamResult() {
+		return examResult;
 	}
 
-	public void setScores(List<ScoreBean> scores) {
-		this.scores = scores;
+	public void setExamResult(ExamResultBean examResult) {
+		this.examResult = examResult;
 	}
 
-	public void addScores(ScoreBean score) {
-		this.scores.add(score);
-	}
-
-	public StudentBean(List<ScoreBean> scores) {
-		this.setScores(scores);
+	public StudentBean(ExamResultBean examResult) {
+		this.setExamResult(examResult);
 	}
 
 	public StudentBean() {
@@ -84,11 +78,8 @@ public class StudentBean {
 	public String toString() {
 		String result = "";
 		result = "Name: " + this.getName() + ", age: " + this.getAge() + ", class: " + this.getClasses()
-				+ ", province: " + this.getProvince() + ", GPA: " + this.getGPA() + "\n";
-		for (ScoreBean score : this.getScores()) {
-			result += score.toString() + "\n";
-		}
-
+				+ ", province: " + this.getProvince() + ", GPA: " + this.examResult.getGPA() + "\n";
+		result += this.examResult.toString();
 		return result;
 	}
 
@@ -98,13 +89,5 @@ public class StudentBean {
 
 	public void setStudent_id(int student_id) {
 		this.student_id = student_id;
-	}
-
-	public double getGPA() {
-		double result = 0;
-		for (ScoreBean score : this.getScores()) {
-			result += score.getPoint();
-		}
-		return result / this.getScores().size();
 	}
 }
