@@ -23,6 +23,10 @@ public class StudentBean {
 		this.scores = scores;
 	}
 
+	public void addScores(ScoreBean score) {
+		this.scores.add(score);
+	}
+
 	public StudentBean(List<ScoreBean> scores) {
 		this.setScores(scores);
 	}

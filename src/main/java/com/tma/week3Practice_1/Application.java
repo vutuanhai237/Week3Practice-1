@@ -15,9 +15,6 @@ public class Application {
 		student.setAge(10);
 		student.setProvince("Gia Lai");
 		student.setClasses("12C1");
-		ScoreBean score = context.getBean("scoreBean", ScoreBean.class);
-		score.setName("Toan");
-		score.setPoint(10.0);
 		System.out.println(student.toString());
 
 	}
