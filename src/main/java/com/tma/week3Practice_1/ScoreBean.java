@@ -1,5 +1,8 @@
 package com.tma.week3Practice_1;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ScoreBean {
 	private String name;
 	private double point;
@@ -7,6 +10,11 @@ public class ScoreBean {
 	public ScoreBean(String name, int point) {
 		this.name = name;
 		this.point = point;
+	}
+
+	public ScoreBean() {
+		this.name = "";
+		this.point = 0.0;
 	}
 
 	public String getName() {
