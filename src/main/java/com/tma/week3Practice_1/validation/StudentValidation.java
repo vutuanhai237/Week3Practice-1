@@ -1,9 +1,9 @@
 package com.tma.week3Practice_1.validation;
 
-import com.tma.week3Practice_1.model.StudentBean;
+import com.tma.week3Practice_1.model.Student;
 
 public class StudentValidation {
-	public static String check(StudentBean student) throws Exception {
+	public static String check(Student student) throws Exception {
 		String message = "valid";
 		try {
 			if (student.getName().length() < 1 || student.getName().length() > 30) {

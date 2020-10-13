@@ -1,42 +1,65 @@
 package com.tma.week3Practice_1.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name = "Student")
 @Component
-public class StudentBean {
-	@Autowired
-	private ExamResultBean examResult;
-	private int student_id;
-	private String name;
-	private int age;
-	private String province;
-	private String classes;
+public class Student {
 
-	public ExamResultBean getExamResult() {
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
+	private int id;
+	@Column(name = "NAME")
+	private String name;
+	@Column(name = "AGE")
+	private int age;
+	@Column(name = "PROVINCE")
+	private String province;
+	@Column(name = "CLASSES")
+	private String classes;
+//	@Column(name = "EXAM_ID")
+//	private int exam_id;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "exam_id", referencedColumnName = "id")
+	private ExamResult examResult;
+
+	@Autowired
+	public ExamResult getExamResult() {
 		return examResult;
 	}
 
-	public void setExamResult(ExamResultBean examResult) {
+	public void setExamResult(ExamResult examResult) {
 		this.examResult = examResult;
 	}
 
-	public StudentBean(ExamResultBean examResult) {
+	public Student(ExamResult examResult) {
 		this.setExamResult(examResult);
 	}
 
-	public StudentBean() {
+	public Student() {
 		this.name = "";
 		this.age = 0;
 		this.province = "";
 		this.classes = "";
 	}
 
-	public StudentBean(String name) {
+	public Student(String name) {
 		this.name = name;
 	}
 
-	public StudentBean(String name, int age, String province, String classes) {
+	public Student(String name, int age, String province, String classes) {
 		this.name = name;
 		this.age = age;
 		this.province = province;
@@ -83,11 +106,11 @@ public class StudentBean {
 		return result;
 	}
 
-	public int getStudent_id() {
-		return student_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setStudent_id(int student_id) {
-		this.student_id = student_id;
+	public void setId(int student_id) {
+		this.id = id;
 	}
 }

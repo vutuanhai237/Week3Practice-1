@@ -1,18 +1,38 @@
 package com.tma.week3Practice_1.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name = "examresult")
 @Component
-public class ExamResultBean {
+public class ExamResult {
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
+	private long id;
+	@Column(name = "POINT1")
 	private float point1;
+	@Column(name = "POINT2")
 	private float point2;
+	@Column(name = "POINT3")
 	private float point3;
 
-	public ExamResultBean() {
+	@OneToOne(mappedBy = "examResult", fetch = FetchType.EAGER)
+	private Student student;
+
+	public ExamResult() {
 		this.point1 = this.point2 = this.point3 = 0f;
 	}
 
-	public ExamResultBean(float point1, float point2, float point3) {
+	public ExamResult(float point1, float point2, float point3) {
 		this.point1 = point1;
 		this.point2 = point2;
 		this.point3 = point3;

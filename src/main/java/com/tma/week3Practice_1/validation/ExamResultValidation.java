@@ -1,9 +1,9 @@
 package com.tma.week3Practice_1.validation;
 
-import com.tma.week3Practice_1.model.ExamResultBean;
+import com.tma.week3Practice_1.model.ExamResult;
 
 public class ExamResultValidation {
-	public static String check(ExamResultBean examResult) throws Exception {
+	public static String check(ExamResult examResult) throws Exception {
 		try {
 			if (checkPoint(examResult.getPoint1()) && checkPoint(examResult.getPoint2())
 					&& checkPoint(examResult.getPoint3())) {

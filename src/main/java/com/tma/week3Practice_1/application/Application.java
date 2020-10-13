@@ -4,32 +4,33 @@ import java.util.Scanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.tma.week3Practice_1.model.StudentBean;
-import com.tma.week3Practice_1.validation.StudentValidation;
+import com.tma.week3Practice_1.model.Student;
 
-@ComponentScan({ "com.tma.week3Practice_1.model" })
 @SpringBootApplication
+@ComponentScan({ "com.tma.week3Practice_1" })
+@EntityScan("com.tma.week3Practice_1.model")
+@EnableJpaRepositories("com.tma.week3Practice_1.repository")
 public class Application {
 
 	public static void main(String[] args) throws Exception {
-		ApplicationContext context = SpringApplication.run(Application.class, args);
-		// Use only annotation
-		StudentBean student = context.getBean("studentBean", StudentBean.class);
-		do {
-			student = input(student);
-			String validation = StudentValidation.check(student);
-			if (validation != "valid") {
-				System.out.println(validation);
-			}
-		} while (StudentValidation.check(student) != "valid");
-		System.out.println(student.toString());
+		SpringApplication.run(Application.class, args);
+//		Student student = context.getBean("studentBean", Student.class);
+//		do {
+//			student = input(student);
+//			String validation = StudentValidation.check(student);
+//			if (validation != "valid") {
+//				System.out.println(validation);
+//			}
+//		} while (StudentValidation.check(student) != "valid");
+//		System.out.println(student.toString());
 
 	}
 
-	public static StudentBean input(StudentBean student) {
+	public static Student input(Student student) {
 		Scanner scn = new Scanner(System.in);
 		System.out.println("Enter student's name: ");
 		String name = scn.nextLine();

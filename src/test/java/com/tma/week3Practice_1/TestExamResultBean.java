@@ -10,15 +10,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.tma.week3Practice_1.model.ExamResultBean;
+import com.tma.week3Practice_1.model.ExamResult;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //ApplicationContext will be loaded from the OrderServiceConfig class
-@ContextConfiguration(classes = ExamResultBean.class, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = ExamResult.class, loader = AnnotationConfigContextLoader.class)
 public class TestExamResultBean {
 
 	@Autowired(required = true)
-	ExamResultBean examResult;
+	ExamResult examResult;
 
 	@Before
 	public void initTest() {
