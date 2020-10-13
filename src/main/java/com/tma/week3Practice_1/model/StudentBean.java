@@ -78,7 +78,7 @@ public class StudentBean {
 	public String toString() {
 		String result = "";
 		result = "Name: " + this.getName() + ", age: " + this.getAge() + ", class: " + this.getClasses()
-				+ ", province: " + this.getProvince() + ", GPA: " + this.examResult.getGPA() + "\n";
+				+ ", province: " + this.getProvince() + ", GPA: " + this.examResult.getGPA() + ", ";
 		result += this.examResult.toString();
 		return result;
 	}

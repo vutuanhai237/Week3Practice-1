@@ -14,7 +14,7 @@ import com.tma.week3Practice_1.validation.StudentValidation;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		ApplicationContext context = SpringApplication.run(Application.class, args);
 		// Use only annotation
 		StudentBean student = context.getBean("studentBean", StudentBean.class);
