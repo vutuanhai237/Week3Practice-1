@@ -20,10 +20,14 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public String updateStudents(Student student) {
+	public String updateStudents(int student_id, Student student) {
 		try {
 			if (StudentValidation.check(student) == "valid") {
-				// return studentRepository.updateStudents(student);
+				studentRepository.delete(student_id);
+				studentRepository.save(student);
+				return "success";
+			} else {
+				return StudentValidation.check(student);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,6 +41,8 @@ public class StudentServiceImpl implements StudentService {
 			if (StudentValidation.check(student) == "valid") {
 				studentRepository.save(student);
 				return "success";
+			} else {
+				return StudentValidation.check(student);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -47,7 +53,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public String deleteStudents(int student_id) {
-		// studentRepository.deleteById(student_id);
+		studentRepository.delete(student_id);
 		return "";
 	}
 

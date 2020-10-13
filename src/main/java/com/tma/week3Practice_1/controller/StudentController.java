@@ -33,12 +33,12 @@ public class StudentController {
 	}
 
 	@PutMapping(path = "/students")
-	public @ResponseBody String updateStudents(@RequestBody Student student) {
-		return studentService.updateStudents(student);
+	public @ResponseBody String updateStudents(@RequestParam int id, @RequestBody Student student) {
+		return studentService.updateStudents(id, student);
 	}
 
 	@DeleteMapping(path = "/students")
-	public @ResponseBody String deleteStudents(@RequestParam int student_id) {
-		return studentService.deleteStudents(student_id);
+	public @ResponseBody String deleteStudents(@RequestParam int id) {
+		return studentService.deleteStudents(id);
 	}
 }

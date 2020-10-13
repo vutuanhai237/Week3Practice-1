@@ -18,12 +18,6 @@ public class ExamResultServiceImpl implements StudentService {
 	}
 
 	@Override
-	public String updateStudents(Student student) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String createStudents(Student student) {
 		// TODO Auto-generated method stub
 		return null;
@@ -31,6 +25,12 @@ public class ExamResultServiceImpl implements StudentService {
 
 	@Override
 	public String deleteStudents(int student_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateStudents(int student_id, Student student) {
 		// TODO Auto-generated method stub
 		return null;
 	}

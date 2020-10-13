@@ -107,10 +107,10 @@ public class Student {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
-	public void setId(int student_id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }
