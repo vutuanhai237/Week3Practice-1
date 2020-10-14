@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.tma.week3Practice_1.model.Student;
 import com.tma.week3Practice_1.repository.StudentRepository;
+import com.tma.week3Practice_1.utils.Constant;
 import com.tma.week3Practice_1.validation.StudentValidation;
 
 @Service
@@ -25,14 +26,14 @@ public class StudentServiceImpl implements StudentService {
 			if (StudentValidation.check(student) == "valid") {
 				studentRepository.delete(student_id);
 				studentRepository.save(student);
-				return "success";
+				return Constant.success;
 			} else {
 				return StudentValidation.check(student);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "not success";
+		return Constant.notSuccess;
 	}
 
 	@Override
@@ -40,21 +41,26 @@ public class StudentServiceImpl implements StudentService {
 		try {
 			if (StudentValidation.check(student) == "valid") {
 				studentRepository.save(student);
-				return "success";
+				return Constant.success;
 			} else {
 				return StudentValidation.check(student);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return Constant.notSuccess;
 		}
-		return "not success";
 	}
 
 	@Override
 	public String deleteStudents(int student_id) {
-		studentRepository.delete(student_id);
-		return "";
+		try {
+			studentRepository.delete(student_id);
+			return Constant.success;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Constant.notSuccess;
+		}
+
 	}
 
 }

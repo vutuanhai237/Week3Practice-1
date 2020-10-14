@@ -29,8 +29,7 @@ public class Student {
 	private String province;
 	@Column(name = "CLASSES")
 	private String classes;
-//	@Column(name = "EXAM_ID")
-//	private int exam_id;
+	@Autowired
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "exam_id", referencedColumnName = "id")
 	private ExamResult examResult;
