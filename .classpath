@@ -6,7 +6,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+	<classpathentry kind="src" path="src/main/resources/templates"/>
+	<classpathentry excluding="**|templates/" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -30,8 +31,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/vthai/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar" sourcepath="C:/Users/vthai/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19-sources.jar">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="org.mockito"/>
 			<attribute name="maven.artifactId" value="mockito-all"/>
 			<attribute name="maven.version" value="1.10.19"/>
@@ -40,8 +41,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/vthai/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar" sourcepath="C:/Users/vthai/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19-sources.jar">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="org.mockito"/>
 			<attribute name="maven.artifactId" value="mockito-core"/>
 			<attribute name="maven.version" value="1.10.19"/>
