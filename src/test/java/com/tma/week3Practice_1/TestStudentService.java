@@ -62,7 +62,7 @@ public class TestStudentService {
 
 	@Test
 	public void test_StudentService_createStudent_Valid() {
-		assertEquals(Constant.success, studentService.createStudents(student));
+		assertEquals(Constant.SUCCESS, studentService.createStudents(student));
 	}
 
 	@Test

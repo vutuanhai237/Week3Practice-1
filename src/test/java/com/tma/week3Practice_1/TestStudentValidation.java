@@ -11,7 +11,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.tma.week3Practice_1.model.ExamResult;
 import com.tma.week3Practice_1.model.Student;
-import com.tma.week3Practice_1.validation.StudentValidation;
+import com.tma.week3Practice_1.utils.Constant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //ApplicationContext will be loaded from the OrderServiceConfig class
@@ -33,77 +33,77 @@ public class TestStudentValidation {
 
 	@Test
 	public void test_StudentValidation_Check_Valid() throws Exception {
-		assertEquals("valid", StudentValidation.check(this.student));
+		assertEquals(Constant.VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_NameNotValid_1() throws Exception {
 		student.setName("");
-		assertEquals("Name is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_NAME_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_NameNotValid_2() throws Exception {
 		student.setName("VuTuanHaiVuTuanHaiVuTuanHaiVuTuanHaiVuTuanHai");
-		assertEquals("Name is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_NAME_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_AgeNotValid_1() throws Exception {
 		student.setAge(101);
-		assertEquals("Age is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_AGE_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_AgeNotValid_2() throws Exception {
 		student.setAge(-1);
-		assertEquals("Age is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_AGE_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ProvinceNotValid_1() throws Exception {
 		student.setProvince("");
-		assertEquals("Province is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_PROVINCE_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ProvinceNotValid_2() throws Exception {
 		student.setProvince(
 				"Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai Gia Lai");
-		assertEquals("Province is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_PROVINCE_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ClassesNotValid_1() throws Exception {
 		student.setClasses("");
-		assertEquals("Class is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_CLASS_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ClassesNotValid_2() throws Exception {
 		student.setClasses("12121212121212");
-		assertEquals("Class is not valid", StudentValidation.check(this.student));
+		assertEquals(Constant.STUDENT_CLASS_IS_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ExamResultNotValid_1() throws Exception {
 		student.getExamResult().setPoint1(-1);
-		assertEquals("Exam result is not valid (1 - 10)", StudentValidation.check(this.student));
+		assertEquals(Constant.EXAM_RESULT_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_ExamResultNotValid_2() throws Exception {
 		student.getExamResult().setPoint1(11);
-		assertEquals("Exam result is not valid (1 - 10)", StudentValidation.check(this.student));
+		assertEquals(Constant.EXAM_RESULT_NOT_VALID, this.student.check());
 	}
 
 	@Test
 	public void test_StudentValidation_Check_Null() {
 		this.student = null;
 		try {
-			StudentValidation.check(this.student);
+			this.student.check();
 		} catch (Exception e) {
-			assertEquals(e.getMessage(), "Student or exam result is null");
+			assertEquals(e.getMessage(), Constant.STUDENT_IS_NULL);
 		}
 	}
 }
