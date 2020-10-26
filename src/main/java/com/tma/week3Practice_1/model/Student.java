@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.tma.week3Practice_1.utils.Constant;
+
 @Entity
 @Table(name = "Student")
 @Component
@@ -111,5 +113,23 @@ public class Student {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String check() throws Exception {
+		try {
+			if (this.getName().length() < 1 || this.getName().length() > 30) {
+				return Constant.STUDENT_NAME_IS_NOT_VALID;
+			} else if (this.getAge() < 0 || this.getAge() > 100) {
+				return Constant.STUDENT_AGE_IS_NOT_VALID;
+			} else if (this.getClasses().length() < 1 || this.getClasses().length() > 10) {
+				return Constant.STUDENT_CLASS_IS_NOT_VALID;
+			} else if (this.getProvince().length() < 1 || this.getProvince().length() > 100) {
+				return Constant.STUDENT_PROVINCE_IS_NOT_VALID;
+			}
+
+			return this.getExamResult().check();
+		} catch (Exception e) {
+			throw new Exception(Constant.STUDENT_IS_NULL);
+		}
 	}
 }

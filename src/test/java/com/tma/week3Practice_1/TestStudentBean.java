@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -14,14 +13,13 @@ import com.tma.week3Practice_1.model.ExamResult;
 import com.tma.week3Practice_1.model.Student;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { Student.class,
-		ExamResult.class }, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = { Student.class, ExamResult.class }, loader = AnnotationConfigContextLoader.class)
 public class TestStudentBean {
-	@Autowired
 	private Student student;
 
 	@Before
 	public void initTest() {
+		student = new Student();
 		student.setName("VuTuanHai");
 		student.setAge(21);
 		student.setProvince("Gia Lai");

@@ -1,10 +1,11 @@
-package com.tma.week3Practice_1.service;
+package com.tma.week3Practice_1.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tma.week3Practice_1.model.Student;
 import com.tma.week3Practice_1.repository.StudentRepository;
+import com.tma.week3Practice_1.service.StudentService;
 
 @Service
 public class ExamResultServiceImpl implements StudentService {

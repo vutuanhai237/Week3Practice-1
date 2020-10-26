@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.tma.week3Practice_1.utils.Constant;
+
 @Entity
 @Table(name = "examresult")
 @Component
@@ -68,5 +70,25 @@ public class ExamResult {
 
 	public void setPoint3(float point3) {
 		this.point3 = point3;
+	}
+
+	public String check() throws Exception {
+		try {
+			if (checkPoint(this.getPoint1()) && checkPoint(this.getPoint2()) && checkPoint(this.getPoint3())) {
+				return Constant.VALID;
+
+			}
+			return Constant.EXAM_RESULT_NOT_VALID;
+		} catch (Exception e) {
+			throw new Exception(Constant.EXAM_RESULT_IS_NULL);
+		}
+
+	}
+
+	public boolean checkPoint(float point) {
+		if (point < 0 || point > 10) {
+			return false;
+		}
+		return true;
 	}
 }

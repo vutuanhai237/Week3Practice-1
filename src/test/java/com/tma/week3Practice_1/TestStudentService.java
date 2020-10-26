@@ -12,20 +12,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.tma.week3Practice_1.model.ExamResult;
 import com.tma.week3Practice_1.model.Student;
 import com.tma.week3Practice_1.repository.StudentRepository;
-import com.tma.week3Practice_1.service.StudentServiceImpl;
+import com.tma.week3Practice_1.service.impl.StudentServiceImpl;
 import com.tma.week3Practice_1.utils.Constant;
 
 @RunWith(MockitoJUnitRunner.class)
 @ContextConfiguration(classes = { Student.class, ExamResult.class }, loader = AnnotationConfigContextLoader.class)
 public class TestStudentService {
-	@Autowired
 	private Student student;
 	@Mock
 	private StudentRepository studentRepository;
@@ -72,4 +70,5 @@ public class TestStudentService {
 		student.setAge(101);
 		assertEquals("Age is not valid", studentService.createStudents(student));
 	}
+
 }

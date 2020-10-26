@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -18,12 +17,11 @@ import com.tma.week3Practice_1.validation.ExamResultValidation;
 @ContextConfiguration(classes = ExamResult.class, loader = AnnotationConfigContextLoader.class)
 public class TestExamResultValidation {
 
-	@Autowired(required = true)
 	ExamResult examResult;
 
 	@Before
 	public void initTest() {
-
+		examResult = new ExamResult();
 	}
 
 	@Test
