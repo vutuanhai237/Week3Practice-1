@@ -45,7 +45,7 @@ public class ExamResult {
 	}
 
 	public String toString() {
-		return "Toán: " + this.point1 + ", Lý: " + this.point2 + ", Anh: " + this.point3;
+		return "Math: " + this.point1 + ", Physical: " + this.point2 + ", English: " + this.point3;
 	}
 
 	public float getPoint1() {

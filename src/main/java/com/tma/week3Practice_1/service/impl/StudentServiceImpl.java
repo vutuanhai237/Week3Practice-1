@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public String updateStudents(int student_id, Student student) {
 		try {
-			if (student.check() == "valid") {
+			if (student.check() == Constant.VALID) {
 				studentRepository.delete(student_id);
 				studentRepository.save(student);
 				return Constant.SUCCESS;
@@ -39,7 +39,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public String createStudents(Student student) {
 		try {
-			if (student.check() == "valid") {
+			if (student.check() == Constant.VALID) {
 				studentRepository.save(student);
 				return Constant.SUCCESS;
 			} else {
