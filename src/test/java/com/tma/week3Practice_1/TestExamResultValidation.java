@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.tma.week3Practice_1.model.ExamResult;
+import com.tma.week3Practice_1.utils.Constant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //ApplicationContext will be loaded from the OrderServiceConfig class
@@ -46,7 +47,7 @@ public class TestExamResultValidation {
 		this.examResult.setPoint1(7);
 		this.examResult.setPoint2(3);
 		this.examResult.setPoint3(9);
-		assertEquals("valid", this.examResult.check());
+		assertEquals(Constant.VALID, this.examResult.check());
 	}
 
 	@Test
@@ -70,7 +71,7 @@ public class TestExamResultValidation {
 		this.examResult.setPoint1(7);
 		this.examResult.setPoint2(3);
 		this.examResult.setPoint3(9999);
-		assertEquals("Exam result is not valid (1 - 10)", this.examResult.check());
+		assertEquals(Constant.EXAM_RESULT_NOT_VALID, this.examResult.check());
 	}
 
 	@Test
@@ -79,7 +80,7 @@ public class TestExamResultValidation {
 		try {
 			this.examResult.check();
 		} catch (Exception e) {
-			assertEquals(e.getMessage(), "Exam result is null");
+			assertEquals(e.getMessage(), null);
 		}
 	}
 }

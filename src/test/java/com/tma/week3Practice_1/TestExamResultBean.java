@@ -38,6 +38,6 @@ public class TestExamResultBean {
 
 	@Test
 	public void test_ExamResultBean_toString() {
-		assertEquals("Toán: 7.0, Lý: 10.0, Anh: 7.0", this.examResult.toString());
+		assertEquals("Math: 7.0, Physical: 10.0, English: 7.0", this.examResult.toString());
 	}
 }

@@ -15,15 +15,15 @@ import com.tma.week3Practice_1.model.Student;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { Student.class, ExamResult.class }, loader = AnnotationConfigContextLoader.class)
 public class TestStudentBean {
-	private Student student;
+	private Student student = new Student();
 
 	@Before
 	public void initTest() {
-		student = new Student();
 		student.setName("VuTuanHai");
 		student.setAge(21);
 		student.setProvince("Gia Lai");
 		student.setClasses("12C1");
+		student.setExamResult(new ExamResult());
 		student.getExamResult().setPoint1(7);
 		student.getExamResult().setPoint2(7);
 		student.getExamResult().setPoint3(7);
@@ -31,7 +31,8 @@ public class TestStudentBean {
 
 	@Test
 	public void test_StudentBean_toString() {
-		assertEquals("Name: VuTuanHai, age: 21, class: 12C1, province: Gia Lai, GPA: 7.0, Toán: 7.0, Lý: 7.0, Anh: 7.0",
+		assertEquals(
+				"Name: VuTuanHai, age: 21, class: 12C1, province: Gia Lai, GPA: 7.0, Math: 7.0, Physical: 7.0, English: 7.0",
 				student.toString());
 	}
 

@@ -17,15 +17,15 @@ import com.tma.week3Practice_1.utils.Constant;
 //ApplicationContext will be loaded from the OrderServiceConfig class
 @ContextConfiguration(classes = { Student.class, ExamResult.class }, loader = AnnotationConfigContextLoader.class)
 public class TestStudentValidation {
-	private Student student;
+	private Student student = new Student();
 
 	@Before
 	public void initTest() {
-		student = new Student();
 		student.setName("VuTuanHai");
 		student.setAge(21);
 		student.setProvince("Gia Lai");
 		student.setClasses("12C1");
+		student.setExamResult(new ExamResult());
 		student.getExamResult().setPoint1(7);
 		student.getExamResult().setPoint2(7);
 		student.getExamResult().setPoint3(7);
@@ -103,7 +103,7 @@ public class TestStudentValidation {
 		try {
 			this.student.check();
 		} catch (Exception e) {
-			assertEquals(e.getMessage(), Constant.STUDENT_IS_NULL);
+			assertEquals(e.getMessage(), null);
 		}
 	}
 }
